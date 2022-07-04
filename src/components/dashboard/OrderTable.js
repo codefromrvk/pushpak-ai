@@ -121,7 +121,7 @@ const OrderTable = ({ apiData }) => {
 
       {rows.length === 0 && (
         <div
-          className="d-flex align-items-center justify-content-center"
+          className="d-flex align-items-center justify-content-center text-dark fs-4"
           style={{ height: "400px" }}
         >
           No records found
