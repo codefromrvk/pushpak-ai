@@ -15,18 +15,10 @@ const Login = () => {
   const { auth, setAuth } = useAuth();
   const navigate = useNavigate();
   console.log("Login", auth);
-  // const location = useLocation();
-  // console.log("login", localStorage.getItem("access-token"));
-
-  // const from = location?.state?.from?.pathname || "/";
 
   useEffect(() => {
     setErrorMessage("");
   }, [username, password]);
-  // useEffect(() => {
-  //   const userInfo = JSON.parse(localStorage.getItem("access-token"));
-  //   setAuth(userInfo);
-  // }, [setAuth]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -47,6 +39,7 @@ const Login = () => {
       setErrorMessage("");
       navigate("/", { replace: true });
     } catch (error) {
+      console.log(error);
       setErrorMessage("Username or Password is wrong!");
     }
   };
