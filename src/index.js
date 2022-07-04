@@ -2,6 +2,7 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import App from "./App";
 import AuthProvider from "./context/AuthProvider";
+import "./styles.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
