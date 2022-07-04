@@ -1,18 +1,19 @@
-import { useId, useMemo } from "react";
+import { useId, useMemo, useState } from "react";
 import { useTable, useGlobalFilter, usePagination } from "react-table";
 import { COLUMNS } from "./columns.js";
 import GlobalFilter from "./GlobalFilter.js";
+import { Filter, PlusLg, Search, Bell } from "react-bootstrap-icons";
 
 const OrderTable = ({ apiData }) => {
-  console.log(apiData, "in table");
-  console.log(COLUMNS, "in table");
+  const [filterOption, setFilterOption] = useState(false);
+  const [search, setSearch] = useState(false);
   const id = useId();
   const columns = useMemo(() => COLUMNS, []);
 
   const dateformatter = (arr) => {
     arr.forEach((ele) => {
       let val = new Date(ele.date);
-      console.log(val.toString());
+
       ele.date = val.toString().slice(4, 15);
     });
     return arr;
@@ -37,20 +38,55 @@ const OrderTable = ({ apiData }) => {
 
   const { globalFilter } = state;
 
+  const handleClick = () => {
+    setFilterOption((prev) => !prev);
+  };
+  const handleSearch = () => {
+    setSearch((prev) => !prev);
+  };
   return (
     <>
-      <div className="w-100 ">
-        <p className="fs-4 fw-bold pb-2">Latest Orders</p>
+      <div className="d-flex justify-content-end align-items-center">
+        {search && (
+          <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
+        )}
+
+        <Search
+          className="text-dark fs-5 mx-2 "
+          onClick={handleSearch}
+          style={{ cursor: "pointer" }}
+        />
+        <Bell className="text-dark fs-5" style={{ cursor: "pointer" }} />
       </div>
-      <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
+      <div className="w-100 ">
+        <p className="fs-4 fw-bold pb-2 text-dark">Latest Orders</p>
+      </div>
+      {/* eslint-disable  */}
+      <div
+        className="bg-light text-dark rounded-pill d-flex align-items-center justify-content-between px-2 py-1 "
+        style={{ cursor: "pointer" }}
+        onClick={handleClick}
+      >
+        <Filter />
+        {/* <button type="button" className="border-0 bg-transparent"> */}
+        Filters
+        {/* </button> */}
+        <PlusLg />
+      </div>
+      {filterOption && (
+        <div className="text-dark d-flex justify-content-center ">
+          Filters section
+        </div>
+      )}
+      {/* eslint-enable  */}
       <div className=" mt-3">
-        <table className="table  " {...getTableProps()}>
+        <table className="text-dark  " {...getTableProps()}>
           <thead>
             {headerGroups.map((headerGroup) => (
               <tr key={id} {...headerGroup.getHeaderGroupProps()}>
                 {headerGroup.headers.map((column) => (
                   <th
-                    className=" text-secondary"
+                    className="text-secondary"
                     key={id}
                     {...column.getHeaderProps()}
                   >
@@ -60,7 +96,7 @@ const OrderTable = ({ apiData }) => {
               </tr>
             ))}
           </thead>
-          <tbody className="font-responsive bg-white" {...getTableBodyProps()}>
+          <tbody className="font-responsive " {...getTableBodyProps()}>
             {rows.map((row) => {
               prepareRow(row);
               return (
@@ -68,7 +104,7 @@ const OrderTable = ({ apiData }) => {
                   {row.cells.map((cell) => {
                     return (
                       <td
-                        className="ps-2 py-2 "
+                        className=" padding-cell"
                         key={id}
                         {...cell.getCellProps()}
                       >

@@ -35,6 +35,10 @@ const Login = () => {
           token: response.data.token,
         };
       });
+      localStorage.setItem(
+        "userInfo",
+        JSON.stringify({ username, token: response.data.token })
+      );
 
       setErrorMessage("");
       navigate("/", { replace: true });

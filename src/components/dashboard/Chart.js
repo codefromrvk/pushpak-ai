@@ -65,7 +65,7 @@ const Chart = () => {
     <>
       <div className="my-4 ps-1">
         <span
-          className="fs-5 fw-bold border-info border-bottom border-3
+          className="fs-5 fw-bold border-primary border-bottom border-3
         "
         >
           Revenue
@@ -75,15 +75,15 @@ const Chart = () => {
         <AreaChart margin={{ left: -2 }} data={chartData}>
           <defs>
             <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#0dcaf0" stopOpacity={0.4} />
-              <stop offset="75%" stopColor="#0dcaf0" stopOpacity={0.05} />
+              <stop offset="0%" stopColor="#0d6efd" stopOpacity={0.4} />
+              <stop offset="75%" stopColor="#0d6efd" stopOpacity={0.05} />
             </linearGradient>
           </defs>
 
           <Area
             type="monotone"
             dataKey="value"
-            stroke="#0dcaf0"
+            stroke="#0d6efd"
             fill="url(#color)"
             strokeWidth={2}
           />

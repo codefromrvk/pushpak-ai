@@ -4,6 +4,7 @@ export const AuthContext = createContext({});
 
 const AuthProvider = (props) => {
   const [auth, setAuth] = useState({});
+  console.log("auth", auth);
 
   return <AuthContext.Provider value={{ auth, setAuth }} {...props} />;
 };

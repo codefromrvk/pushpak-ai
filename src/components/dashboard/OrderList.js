@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Stack } from "react-bootstrap";
+import { Stack, Button } from "react-bootstrap";
 import axios from "../../api/axios";
 import { useAuth } from "../../hooks/useAuth";
 import OrderTable from "./OrderTable";
@@ -8,7 +8,7 @@ import { PulseLoader } from "react-spinners";
 const OrderList = () => {
   const [apiData, setApiData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [pageNum, setPageNum] = useState(20);
+  const [pageNum, setPageNum] = useState(1);
   const {
     auth: { token },
   } = useAuth();
@@ -18,15 +18,14 @@ const OrderList = () => {
   }, [pageNum]);
 
   const fetchData = async () => {
-    console.log("api called");
     try {
       const response = await axios.get(
-        `/api/orders?page=${pageNum}&limit=11&order_status=`,
+        `/api/orders?page=${pageNum}&limit=10&order_status=`,
         {
           headers: { authorization: token },
         }
       );
-      console.log("api", response.data);
+
       setApiData(response.data);
       setLoading(false);
     } catch (error) {
@@ -50,9 +49,10 @@ const OrderList = () => {
             className="d-flex align-items-center flex-column justify-content-center"
             style={{ height: "100vh" }}
           >
-            <span className=" fs-3"> No more records</span>
+            <span className=" fs-3 text-dark"> No more records</span>
 
-            <button
+            <Button
+              variant="primary"
               className="rounded-pill py-1 mt-2"
               onClick={() => {
                 setLoading(true);
@@ -60,13 +60,26 @@ const OrderList = () => {
               }}
             >
               Got to Previous Page
-            </button>
+            </Button>
           </div>
         ) : (
           <>
             <OrderTable apiData={apiData} />
+            <div className="d-flex justify-content-end py-3">
+              <Button
+                className="rounded-pill"
+                variant="primary"
+                onClick={() => {
+                  setLoading(true);
+                  setPageNum(apiData.pagination.next.page);
+                }}
+              >
+                {" "}
+                More Orders
+              </Button>
+            </div>
 
-            <div className="d-flex justify-content-center my-3">
+            {/* <div className="d-flex justify-content-center my-3">
               {apiData?.pagination?.previous?.page && (
                 <button
                   className="bg-transparent border-0 text-secondary"
@@ -92,7 +105,7 @@ const OrderList = () => {
               >
                 {apiData.pagination.next.page}
               </button>
-            </div>
+            </div> */}
           </>
         )}
       </div>

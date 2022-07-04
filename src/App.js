@@ -5,6 +5,7 @@ import Layout from "./components/Layout";
 import Login from "./components/auth/Login";
 import RequireAuth from "./components/auth/RequireAuth";
 import ResetPassword from "./components/auth/ResetPassword";
+import PersistedLogin from "./components/auth/PersistedLogin";
 
 const App = () => {
   console.log("App");
@@ -17,8 +18,10 @@ const App = () => {
 
         {/* Private rotes */}
 
-        <Route element={<RequireAuth />}>
-          <Route path="/" element={<Home />} />
+        <Route element={<PersistedLogin />}>
+          <Route element={<RequireAuth />}>
+            <Route path="/" element={<Home />} />
+          </Route>
         </Route>
       </Route>
     </Routes>

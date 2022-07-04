@@ -7,7 +7,7 @@ const RequireAuth = () => {
 
   console.log("Required auth", auth);
 
-  return auth.username ? (
+  return auth?.username ? (
     <Outlet />
   ) : (
     <Navigate to="/login" state={{ from: location }} replace />

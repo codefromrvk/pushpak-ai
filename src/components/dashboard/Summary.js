@@ -57,10 +57,11 @@ const Summary = () => {
         </div>
       ) : (
         <>
-          <Row sm={2} xl={3} className="g-4 ">
-            <Col>
+          {/* sm={2} md={3} */}
+          <Row className="g-4 ">
+            <Col xs={12} sm={6} md={4}>
               {" "}
-              <Card bg={"info"} className="w-100 h-100">
+              <Card bg={"warning"} className=" bg-opacity-25">
                 <Card.Body>
                   <Card.Subtitle className="py-2">New orders</Card.Subtitle>
                   <Card.Text className="fs-5 fw-bold">
@@ -69,8 +70,8 @@ const Summary = () => {
                 </Card.Body>
               </Card>
             </Col>
-            <Col>
-              <Card bg={"info"}>
+            <Col xs={12} sm={6} md={4}>
+              <Card bg={"primary"} className=" bg-opacity-25">
                 <Card.Body>
                   <Card.Subtitle className="py-2">Average Sale</Card.Subtitle>
                   <Card.Text className="fs-5 fw-bold">
@@ -79,8 +80,8 @@ const Summary = () => {
                 </Card.Body>
               </Card>
             </Col>
-            <Col>
-              <Card bg={"info"}>
+            <Col xs={12} sm={6} md={4}>
+              <Card bg={"success"} className=" bg-opacity-25">
                 <Card.Body>
                   <Card.Subtitle className="py-2">Total Earnings</Card.Subtitle>
                   <Card.Text className="fs-5 fw-bold">
@@ -98,7 +99,11 @@ const Summary = () => {
             <ListGroup className="w-100">
               <ListGroup.Item className=" d-flex justify-content-between">
                 <div>
-                  <Truck color="#0dcaf0" size={20} className="mx-3" />
+                  <Truck
+                    color="white"
+                    size={25}
+                    className=" mx-3 px-1 rounded bg-primary  "
+                  />
                   In delivery
                 </div>
                 <div>
@@ -107,7 +112,11 @@ const Summary = () => {
               </ListGroup.Item>
               <ListGroup.Item className=" d-flex justify-content-between ">
                 <div>
-                  <BagCheck color="#0dcaf0" size={20} className="mx-3" />
+                  <BagCheck
+                    color="white"
+                    size={25}
+                    className="mx-3 px-1  rounded bg-success"
+                  />
                   Delivered
                 </div>
                 <div>
@@ -116,7 +125,11 @@ const Summary = () => {
               </ListGroup.Item>
               <ListGroup.Item className=" d-flex justify-content-between ">
                 <div>
-                  <ArrowClockwise color="#0dcaf0" size={20} className="mx-3" />
+                  <ArrowClockwise
+                    color="white"
+                    size={25}
+                    className="mx-3 px-1  rounded bg-warning"
+                  />
                   Processing
                 </div>
                 <div>
@@ -126,7 +139,11 @@ const Summary = () => {
               <ListGroup.Item className=" d-flex justify-content-between ">
                 <div>
                   {/* img */}
-                  <XSquare color="#0dcaf0" size={20} className="mx-3" />
+                  <XSquare
+                    color="white"
+                    size={25}
+                    className="mx-3 px-1  rounded bg-danger"
+                  />
                   Cancelled
                 </div>
                 <div>
@@ -136,7 +153,11 @@ const Summary = () => {
               <ListGroup.Item className=" d-flex justify-content-between ">
                 <div>
                   {/* img */}
-                  <CashStack color="#0dcaf0" size={20} className="mx-3" />
+                  <CashStack
+                    color="white"
+                    size={25}
+                    className="mx-3 px-1  rounded bg-secondary"
+                  />
                   Refund
                 </div>
                 <div>

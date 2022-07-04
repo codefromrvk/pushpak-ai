@@ -13,13 +13,18 @@ const Dashboard = () => {
   return (
     <Container fluid>
       <Row>
-        <Col className=" padding-large " md={6} sm={12}>
+        <Col className=" padding-large " xl={6} sm={12}>
           <Stack classname="d-flex  align-items-center justify-content-center">
             <Summary />
             <Chart />
           </Stack>
         </Col>
-        <Col className="py-4 bg-dark text-white" md={6} sm={12}>
+        <Col
+          className="py-2 text-white"
+          style={{ backgroundColor: "#e9e9e9" }}
+          xl={6}
+          sm={12}
+        >
           <OrderList />
         </Col>
       </Row>
