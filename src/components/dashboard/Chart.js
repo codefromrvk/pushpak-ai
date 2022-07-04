@@ -22,7 +22,7 @@ function restructure(obj) {
       value: obj[ele],
     });
   });
-  return data;
+  return data.reverse();
 }
 
 const Chart = () => {
@@ -72,7 +72,7 @@ const Chart = () => {
         </span>
       </div>
       <ResponsiveContainer className="repsonsive-chart" height={260}>
-        <AreaChart margin={{ left: -2 }} data={chartData}>
+        <AreaChart data={chartData}>
           <defs>
             <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="#0d6efd" stopOpacity={0.4} />
@@ -92,7 +92,12 @@ const Chart = () => {
             dataKey="date"
             axisLine={false}
             tickLine={false}
-            style={{ fontWeight: "600", color: "black" }}
+            tickMargin={6}
+            style={{
+              fontWeight: "600",
+              color: "black",
+              fontSize: "0.8rem",
+            }}
           />
 
           <YAxis
@@ -100,10 +105,11 @@ const Chart = () => {
             axisLine={false}
             tickLine={false}
             tickCount={7}
+            tickMargin={16}
             style={{
               fontWeight: "600",
               color: "black",
-              wordBreak: "break-word",
+              fontSize: "0.8rem",
             }}
           />
 

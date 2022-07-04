@@ -75,6 +75,7 @@ const Summary = () => {
                 <Card.Body>
                   <Card.Subtitle className="py-2">Average Sale</Card.Subtitle>
                   <Card.Text className="fs-5 fw-bold">
+                    Rs.{" "}
                     {Math.round(apiData.overview.average_sale[0].average_sale)}
                   </Card.Text>
                 </Card.Body>
