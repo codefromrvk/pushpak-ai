@@ -114,7 +114,16 @@ const Chart = () => {
           />
 
           <Tooltip
-            contentStyle={{ background: "cyan", fontWeight: "600" }}
+            labelFormatter={() => " "}
+            label=""
+            formatter={(val) => ["Rs." + val]}
+            contentStyle={{
+              background: "#cdddf8",
+              fontWeight: "600",
+              height: "45px",
+
+              padding: "5px",
+            }}
             itemStyle={{ fontWeight: "600", color: "black" }}
           />
           <Legend />
