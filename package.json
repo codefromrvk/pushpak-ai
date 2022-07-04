@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "dev": "parcel public/index.html",
-    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet"
+    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
+    "build": "parcel build src/index.html"
   },
   "keywords": [],
   "author": "",
