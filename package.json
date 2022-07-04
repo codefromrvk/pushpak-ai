@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "parcel public/index.html",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
-    "build": "parcel build src/index.html"
+    "build": "parcel build public/index.html"
   },
   "keywords": [],
   "author": "",
