@@ -50,7 +50,7 @@ const Login = () => {
   return (
     <Container className="login-container">
       <Image src={logo} alt="logo" className="mb-4" />
-      <Card className="login bg-info ">
+      <Card className="login  ">
         <h1 className="text-center">Sign In</h1>
         <p className="text-center text-danger fw-bolder">{errorMessage}</p>
 
@@ -82,7 +82,7 @@ const Login = () => {
               <Eye />
             </button>
           </Form.Group>
-          <Button className="d-block  m-auto " variant="light" type="submit">
+          <Button className="d-block  m-auto " variant="primary" type="submit">
             Login
           </Button>
         </Form>
