@@ -82,7 +82,11 @@ const Login = () => {
               <Eye />
             </button>
           </Form.Group>
-          <Button className="d-block  m-auto " variant="primary" type="submit">
+          <Button
+            className="d-block w-75 m-auto login-btn "
+            variant="primary"
+            type="submit"
+          >
             Login
           </Button>
         </Form>
